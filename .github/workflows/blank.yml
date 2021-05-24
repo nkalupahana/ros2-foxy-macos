@@ -23,6 +23,7 @@ jobs:
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
           export PATH=$PATH:/usr/local/opt/qt@5/bin
           brew install graphviz pyqt5 sip
+          echo "export GTESTSYS=3" >> .bashrc
           sudo python3 -m pip install -U \
              argcomplete catkin_pkg colcon-common-extensions coverage \
              cryptography empy flake8 flake8-blind-except flake8-builtins \
@@ -33,6 +34,10 @@ jobs:
              pytest-mock rosdep setuptools vcstool rosdistro numpy
       - name: Build ROS2 Foxy
         run: |
+          export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
+          export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
+          export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
+          export
           mkdir -p ~/ros2_foxy/src
           cd ~/ros2_foxy
           wget https://raw.githubusercontent.com/nkalupahana/ros2/master/ros2.repos
@@ -45,6 +50,9 @@ jobs:
           path: ~/ros2_foxy
       - name: Build MoveIt
         run: |
+          export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
+          export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
+          export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
           source ~/ros2_foxy/install/setup.bash
           brew install ompl
           mkdir -p ~/ws_moveit2/src
