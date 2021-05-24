@@ -12,7 +12,7 @@ install:
 - export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
 - export PATH=$PATH:/usr/local/opt/qt@5/bin
 - brew install graphviz pyqt5 sip
-- python3 -m pip install -U \
+- sudo python3 -m pip install -U \
    argcomplete catkin_pkg colcon-common-extensions coverage \
    cryptography empy flake8 flake8-blind-except flake8-builtins \
    flake8-class-newline flake8-comprehensions flake8-deprecated \
@@ -26,5 +26,9 @@ install:
 - vcs import src < ros2.repos
 - cd ~/ros2_foxy/
 - colcon build
+
+artifacts:
+  - path: ~/ros2_foxy/
+    name: ROS2 Foxy
 
 build: off
