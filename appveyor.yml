@@ -2,7 +2,7 @@ image: macos
 
 install:
 - xcode-select -p
-- brew install cppcheck eigen pcre poco tinyxml wget bullet
+- brew install cppcheck eigen pcre poco tinyxml wget bullet bison
 - brew install python@3.8
 - brew unlink python
 - brew link --force python@3.8
