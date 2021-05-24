@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Build ROS2 Foxy
+      - name: Setup Workspace
         run: |
           xcode-select -p
           brew install cppcheck eigen pcre poco tinyxml wget bullet bison
@@ -31,9 +31,36 @@ jobs:
              importlib-metadata lark-parser lxml mock mypy netifaces \
              nose pep8 pydocstyle pydot pygraphviz pyparsing \
              pytest-mock rosdep setuptools vcstool rosdistro numpy
+      - name: Build ROS2 Foxy
+        run: |
           mkdir -p ~/ros2_foxy/src
           cd ~/ros2_foxy
           wget https://raw.githubusercontent.com/nkalupahana/ros2/master/ros2.repos
           vcs import src < ros2.repos
           cd ~/ros2_foxy/
           colcon build --packages-skip-by-dep python_qt_binding
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ros2-foxy
+          path: ~/ros2_foxy
+      - name: Build MoveIt
+        run: |
+          source ~/ros2_foxy/install/setup.bash
+          brew install ompl
+          mkdir -p ~/ws_moveit2/src
+          cd ~/ws_moveit2/src
+          git clone https://github.com/ros-planning/moveit2.git
+          wget https://raw.githubusercontent.com/ros-planning/moveit2/main/moveit2.repos
+          vcs import < moveit2.repos
+          git clone -b ros2 git@github.com:wg-perception/object_recognition_msgs.git
+          git clone -b ros2 git@github.com:OctoMap/octomap_msgs.git
+          git clone -b foxy-devel git@github.com:ros-controls/control_msgs.git
+          git clone -b ros2 git@github.com:ros/eigen_stl_containers.git
+          git clone -b ros2 git@github.com:ros-planning/random_numbers.git
+          git clone -b ros2 git@github.com:ros/angles.git
+          git clone -b ros2_devel git@github.com:ros-controls/realtime_tools.git
+          git clone git@github.com:ros/xacro.git
+          git clone git@github.com:ros/catkin.git
+          git clone git@github.com:ros/roslint.git
+          cd ~/ws_moveit2
+          colcon build --catkin-cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
