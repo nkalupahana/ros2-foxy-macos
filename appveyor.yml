@@ -2,6 +2,7 @@ image: macos
 
 install:
 - xcode-select -p
+- csrutil status
 - brew install cppcheck eigen pcre poco tinyxml wget bullet bison
 - export PATH="/usr/local/opt/bison/bin:$PATH"
 - brew install python@3.8
