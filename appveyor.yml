@@ -1,0 +1,6 @@
+image: macos
+
+install:
+- xcode-select -p
+
+build: off
