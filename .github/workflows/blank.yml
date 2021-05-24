@@ -63,4 +63,4 @@ jobs:
           git clone git@github.com:ros/catkin.git
           git clone git@github.com:ros/roslint.git
           cd ~/ws_moveit2
-          colcon build --catkin-cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          colcon build --packages-skip warehouse_ros_mongo --catkin-cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
