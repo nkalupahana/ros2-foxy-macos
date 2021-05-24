@@ -9,9 +9,7 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Run a one-line script
-        run: csrutil status
-      - name: Run a multi-line script
+      - name: Build ROS2 Foxy
         run: |
           xcode-select -p
           brew install cppcheck eigen pcre poco tinyxml wget bullet bison
@@ -32,10 +30,10 @@ jobs:
              flake8-docstrings flake8-import-order flake8-quotes ifcfg \
              importlib-metadata lark-parser lxml mock mypy netifaces \
              nose pep8 pydocstyle pydot pygraphviz pyparsing \
-             pytest-mock rosdep setuptools vcstool rosdistro numpy sip
+             pytest-mock rosdep setuptools vcstool rosdistro numpy
           mkdir -p ~/ros2_foxy/src
           cd ~/ros2_foxy
           wget https://raw.githubusercontent.com/nkalupahana/ros2/master/ros2.repos
           vcs import src < ros2.repos
           cd ~/ros2_foxy/
-          colcon build
+          colcon build --packages-skip-by-dep python_qt_binding
