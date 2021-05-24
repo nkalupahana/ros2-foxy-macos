@@ -32,7 +32,7 @@ jobs:
              flake8-docstrings flake8-import-order flake8-quotes ifcfg \
              importlib-metadata lark-parser lxml mock mypy netifaces \
              nose pep8 pydocstyle pydot pygraphviz pyparsing \
-             pytest-mock rosdep setuptools vcstool rosdistro numpy
+             pytest-mock rosdep setuptools vcstool rosdistro numpy sip
           mkdir -p ~/ros2_foxy/src
           cd ~/ros2_foxy
           wget https://raw.githubusercontent.com/nkalupahana/ros2/master/ros2.repos
