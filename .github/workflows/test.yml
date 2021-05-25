@@ -1,4 +1,4 @@
-name: code testing
+name: Actions Testing
 
 on:
   workflow_dispatch:
