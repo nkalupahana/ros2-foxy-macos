@@ -62,10 +62,13 @@ jobs:
           cd ~/
           zip -r $WORKSPACE.zip ~/ros2_foxy/
         env:
-          WORKSPACE: ${{ matrix.workspace }}
+          WORKSPACE: ${{ matrix.workspace }}  
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
       - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ~/${{ matrix.workspace }}.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          WORKSPACE: ${{ matrix.workspace }}
+        run: |
+          hub release edit -m "" -a ~/$WORKSPACE.zip $WORKSPACE
