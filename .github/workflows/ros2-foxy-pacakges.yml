@@ -8,9 +8,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        packages: ["ros2-foxy-tools"]
+        package: ["ros2-foxy-tools"]
     runs-on: macos-latest
-    steps:
+    steps:      
       - name: Setup Workspace
         run: |
           xcode-select -p
@@ -25,6 +25,7 @@ jobs:
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
           export PATH=$PATH:/usr/local/opt/qt@5/bin
           brew install graphviz pyqt5 sip
+          echo "export GTESTSYS=3" >> .bashrc
           sudo python3 -m pip install -U \
              argcomplete catkin_pkg colcon-common-extensions coverage \
              cryptography empy flake8 flake8-blind-except flake8-builtins \
@@ -33,8 +34,41 @@ jobs:
              importlib-metadata lark-parser lxml mock mypy netifaces \
              nose pep8 pydocstyle pydot pygraphviz pyparsing \
              pytest-mock rosdep setuptools vcstool rosdistro numpy
-      
-      - uses: actions/download-artifact@v2
+      - name: Get ROS2 Foxy
+        run: |
+          cd ~/
+          wget https://github.com/ros2/ros2/releases/download/release-foxy-20201211/ros2-foxy-20201211-macos-amd64.tar.bz2
+          mkdir -p ~/ros2_foxy
+          cd ~/ros2_foxy
+          tar xf ~/ros2-foxy-20201211-macos-amd64.tar.bz2
+          . ~/ros2_foxy/ros2-osx/setup.bash
+          ros2 
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Create Workspace
+        run: |
+          cd ~/
+          mkdir -p ~/ws/src
+          cd ~/ws/src 
+          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/$PACKAGE.repos
+          vcs import < $PACKAGE.repos
+          cd ~/ws
+          colcon build
+        env:
+          PACKAGE: ${{ matrix.package }}
+      - name: Package
+        run: |
+          cd ~/
+          zip -r $PACKAGE.zip ~/ros2_foxy/
+        env:
+          PACKAGE: ${{ matrix.package }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: ros2-foxy    
+          files: ~/${{ matrix.package }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
+
+      
+      
