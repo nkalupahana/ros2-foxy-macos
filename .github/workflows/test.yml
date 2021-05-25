@@ -12,7 +12,7 @@ jobs:
       - name: Test releases
         env:
           GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
           touch test.txt
           hub release edit -m "" -a appveyor.yml ros2-foxy-tools
