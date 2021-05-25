@@ -42,31 +42,11 @@ jobs:
           vcs import src < ros2.repos
           cd ~/ros2_foxy/
           colcon build --packages-skip-by-dep python_qt_binding
+      - name: Package
+        run: |
+          cd ~/
+          zip -r ros2_foxy.zip ~/ros2_foxy/
       - uses: actions/upload-artifact@v2
         with:
           name: ros2-foxy
-          path: ~/ros2_foxy
-      - name: Build MoveIt
-        run: |
-          export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
-          export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
-          export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
-          source ~/ros2_foxy/install/setup.bash
-          brew install ompl
-          mkdir -p ~/ws_moveit2/src
-          cd ~/ws_moveit2/src
-          git clone https://github.com/ros-planning/moveit2.git
-          wget https://raw.githubusercontent.com/ros-planning/moveit2/main/moveit2.repos
-          vcs import < moveit2.repos
-          git clone -b ros2 git@github.com:wg-perception/object_recognition_msgs.git
-          git clone -b ros2 git@github.com:OctoMap/octomap_msgs.git
-          git clone -b foxy-devel git@github.com:ros-controls/control_msgs.git
-          git clone -b ros2 git@github.com:ros/eigen_stl_containers.git
-          git clone -b ros2 git@github.com:ros-planning/random_numbers.git
-          git clone -b ros2 git@github.com:ros/angles.git
-          git clone -b ros2_devel git@github.com:ros-controls/realtime_tools.git
-          git clone git@github.com:ros/xacro.git
-          git clone git@github.com:ros/catkin.git
-          git clone git@github.com:ros/roslint.git
-          cd ~/ws_moveit2
-          colcon build --packages-skip warehouse_ros_mongo --catkin-cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=/Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          path: ~/ros2_foxy.zip
