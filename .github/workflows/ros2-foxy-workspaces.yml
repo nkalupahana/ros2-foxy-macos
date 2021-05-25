@@ -74,5 +74,5 @@ jobs:
           hub release show $WORKSPACE >> description.txt
           sed -i -e '$d' description.txt
           echo "Last updated: "$(date) >> description.txt 
-          hub release edit -f description.txt -a ~/$WORKSPACE.zip $WORKSPACE
-          
+          hub release delete $WORKSPACE
+          hub release create -f description.txt -a ~/$WORKSPACE.zip $WORKSPACE
