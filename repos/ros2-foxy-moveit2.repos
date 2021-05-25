@@ -58,7 +58,7 @@ repositories:
   realtime_tools:
     type: git
     url: https://github.com/ros-controls/realtime_tools.git
-    version: ros2_devel
+    version: foxy_devel
   warehouse_ros_mongo:
     type: git
     url: https://github.com/ros-planning/warehouse_ros_mongo
