@@ -10,6 +10,7 @@ jobs:
       - name: Test
         run: |
           brew install python@3.8
+          brew unlink python@3.9
           brew link --force python@3.8
           sudo python3 -m pip install -U vcstool
           mkdir -p ~/ros2_foxy/src
