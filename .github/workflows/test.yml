@@ -8,4 +8,18 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Test
-        run: ls /Applications/Xcode_12.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+        run: |
+          brew install python@3.8
+          brew link --force python@3.8
+          sudo python3 -m pip install -U vcstool
+          mkdir -p ~/ros2_foxy/src
+          cd ~/ros2_foxy
+          wget https://raw.githubusercontent.com/nkalupahana/ros2/master/ros2.repos
+          vcs import src < ros2.repos
+          cd ~/
+          zip -r ros2_foxy.zip ~/ros2_foxy/
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ros2-foxy
+          path: ~/ros2_foxy.zip
+          
