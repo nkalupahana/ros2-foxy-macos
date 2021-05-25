@@ -42,9 +42,7 @@ jobs:
           cd ~/ros2_foxy
           tar xf ~/ros2-foxy-20201211-macos-amd64.tar.bz2
           . ~/ros2_foxy/ros2-osx/setup.bash
-          ros2 
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
+          ros2
       - name: Create Workspace
         run: |
           cd ~/
