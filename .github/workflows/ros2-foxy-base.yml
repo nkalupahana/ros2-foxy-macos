@@ -43,8 +43,8 @@ jobs:
           colcon build --packages-skip-by-dep python_qt_binding
       - name: Package
         run: |
-          cd ~/
-          zip -r ros2-foxy-base.zip ~/ros2_foxy/
+          cd ~/ros2_foxy
+          zip -r ros2-foxy-base.zip install/
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Release
@@ -52,4 +52,8 @@ jobs:
           GITHUB_USER: ${{ secrets.GITHUB_USER }}
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
-          hub release edit -m "" -a ~/ros2-foxy-base.zip ros2-foxy-base
+          hub release show ros2-foxy-base >> description.txt
+          sed -i -e '$d' description.txt
+          echo "Last updated: "$(date) >> description.txt 
+          hub release delete ros2-foxy-base
+          hub release create -F description.txt -a ~/ros2_foxy/ros2-foxy-base.zip ros2-foxy-base
