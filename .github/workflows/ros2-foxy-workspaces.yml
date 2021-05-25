@@ -36,6 +36,8 @@ jobs:
       - name: Get ROS2 Foxy
         run: |
           cd ~/
+          mkdir ros2_foxy
+          cd ros2_foxy
           wget https://github.com/nkalupahana/ros2-foxy-macos/releases/download/ros2-foxy-base/ros2-foxy-base.zip
           unzip ros2-foxy-base.zip
           source install/setup.bash
@@ -52,7 +54,7 @@ jobs:
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
-          cd ~/
+          cd ~/ros2_foxy
           source install/setup.bash
           mkdir -p ~/ws/src
           cd ~/ws/src 
