@@ -59,3 +59,11 @@ repositories:
     type: git
     url: https://github.com/ros-controls/realtime_tools.git
     version: ros2_devel
+  warehouse_ros_mongo:
+    type: git
+    url: https://github.com/ros-planning/warehouse_ros_mongo
+    version: ros2
+  moveit2_tutorials:
+    type: git
+    url: https://github.com/ros-planning/moveit2_tutorials.git
+    version: main
