@@ -15,4 +15,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
           touch test.txt
-          hub release edit -m "" -a appveyor.yml ros2-foxy-tools
+          hub release edit -m "" -a test.txt ros2-foxy-tools
