@@ -55,7 +55,3 @@ repositories:
     type: git
     url: https://github.com/ros-controls/realtime_tools.git
     version: foxy-devel
-  rviz_visual_tools:
-    type: git
-    url: https://github.com/PickNikRobotics/rviz_visual_tools.git
-    version: master
