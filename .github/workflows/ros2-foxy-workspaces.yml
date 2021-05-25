@@ -46,6 +46,8 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/deps/$WORKSPACE.txt
           xargs brew install < $WORKSPACE.txt
+        env:
+          WORKSPACE: ${{ matrix.workspace }}
       - name: Create & Build Workspace
         run: |
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
