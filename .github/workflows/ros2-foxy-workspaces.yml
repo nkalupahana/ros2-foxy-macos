@@ -60,7 +60,7 @@ jobs:
       - name: Package
         run: |
           cd ~/
-          zip -r $WORKSPACE.zip ~/ros2_foxy/
+          zip -r $WORKSPACE.zip ~/ws/
         env:
           WORKSPACE: ${{ matrix.workspace }}  
       - name: Checkout
