@@ -52,8 +52,8 @@ jobs:
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
-          . ~/ros2_foxy/ros2-osx/setup.bash
           cd ~/
+          source install/setup.bash
           mkdir -p ~/ws/src
           cd ~/ws/src 
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/$WORKSPACE.repos
