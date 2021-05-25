@@ -1,4 +1,4 @@
-name: ROS2 Foxy
+name: ROS2 Foxy Base
 
 on:
   workflow_dispatch:
@@ -45,8 +45,8 @@ jobs:
       - name: Package
         run: |
           cd ~/
-          zip -r ros2_foxy.zip ~/ros2_foxy/
+          zip -r ros2-foxy-base.zip ~/ros2_foxy/
       - uses: actions/upload-artifact@v2
         with:
-          name: ros2-foxy
-          path: ~/ros2_foxy.zip
+          name: ros2-foxy-base
+          path: ~/ros2-foxy-base.zip
