@@ -45,9 +45,11 @@ jobs:
         run: |
           cd ~/
           zip -r ros2-foxy-base.zip ~/ros2_foxy/
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
       - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ~/ros2-foxy-base.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          hub release edit -m "" -a ~/ros2-foxy-base.zip ros2-foxy-base
