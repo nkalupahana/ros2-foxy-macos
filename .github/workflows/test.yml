@@ -8,4 +8,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Test
-        run: ls /Applications
+        run: ls /Applications/Xcode_10.3.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers
