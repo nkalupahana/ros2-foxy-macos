@@ -42,10 +42,11 @@ jobs:
           tar xf ~/ros2-foxy-20201211-macos-amd64.tar.bz2
           . ~/ros2_foxy/ros2-osx/setup.bash
           ros2
-      - name: Install Workspace-Specific Dependencies
+      - name: Run Workspace-Specific Setup (dependencies, etc.)
         run: |
-          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/deps/$WORKSPACE.txt
-          xargs brew install < $WORKSPACE.txt
+          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/setup/$WORKSPACE.bash
+          chmod a+x $WORKSPACE.bash
+          ./$WORKSPACE.bash
         env:
           WORKSPACE: ${{ matrix.workspace }}
       - name: Create & Build Workspace
