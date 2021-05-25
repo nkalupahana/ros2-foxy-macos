@@ -7,12 +7,10 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v2.14.0
-        with:
-          workflow: "ros2-foxy-base.yml"
-          workflow_conclusion: success   
-      - name: Test
-        run: ls
-
-          
+      - name: Get ROS2 Foxy
+        run: |
+          mkdir -p ~/ros2_foxy
+          cd ~/ros2_foxy
+          tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
+          . ~/ros2_foxy/ros2-osx/setup.bash
+          ros2
