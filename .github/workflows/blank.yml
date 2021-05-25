@@ -1,4 +1,4 @@
-name: CI
+name: ROS2 Foxy
 
 on:
   workflow_dispatch:
