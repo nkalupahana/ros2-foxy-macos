@@ -7,12 +7,8 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Get ROS2 Foxy
+      - name: Test releases
         run: |
-          cd ~/
-          wget https://github.com/ros2/ros2/releases/download/release-foxy-20201211/ros2-foxy-20201211-macos-amd64.tar.bz2
-          mkdir -p ~/ros2_foxy
-          cd ~/ros2_foxy
-          tar xf ~/ros2-foxy-20201211-macos-amd64.tar.bz2
-          . ~/ros2_foxy/ros2-osx/setup.bash
-          ros2
+          brew install hub
+          touch test.txt
+          hub release edit -F test.txt ros2-foxy-tools
