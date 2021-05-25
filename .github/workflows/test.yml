@@ -10,7 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Test releases
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          brew install hub
           touch test.txt
           hub release edit -F test.txt ros2-foxy-tools
