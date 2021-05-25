@@ -27,10 +27,6 @@ repositories:
     type: git
     url: https://github.com/ros-planning/warehouse_ros
     version: ros2
-  rviz_visual_tools:
-    type: git
-    url: https://github.com/PickNikRobotics/rviz_visual_tools.git
-    version: foxy-devel
   eigen_stl_containers:
     type: git
     url: https://github.com/ros/eigen_stl_containers.git
@@ -63,7 +59,3 @@ repositories:
     type: git
     url: https://github.com/ros-planning/warehouse_ros_mongo
     version: ros2
-  moveit2_tutorials:
-    type: git
-    url: https://github.com/ros-planning/moveit2_tutorials.git
-    version: main
