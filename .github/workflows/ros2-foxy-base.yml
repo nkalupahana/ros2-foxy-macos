@@ -37,7 +37,7 @@ jobs:
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
           mkdir -p ~/ros2_foxy/src
           cd ~/ros2_foxy
-          wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+          wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
           vcs import src < ros2.repos
           cd ~/ros2_foxy/
           colcon build --packages-skip-by-dep python_qt_binding
