@@ -15,3 +15,7 @@ repositories:
     type: git
     url: https://github.com/SteveMacenski/slam_toolbox
     version: foxy-devel
+  bond_core:
+    type: git
+    url: https://github.com/ros/bond_core.git
+    version: ros2
