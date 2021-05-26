@@ -55,3 +55,7 @@ repositories:
     type: git
     url: https://github.com/ros-controls/realtime_tools.git
     version: foxy-devel
+  moveit2:
+    type: git
+    url: https://github.com/ros-planning/moveit2.git
+    version: main
