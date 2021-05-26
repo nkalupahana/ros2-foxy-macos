@@ -249,8 +249,8 @@ repositories:
     version: foxy
   ros2/rcl_logging:
     type: git
-    url: https://github.com/ros2/rcl_logging.git
-    version: master
+    url: https://github.com/nkalupahana/rcl_logging
+    version: patch-1
   ros2/rclcpp:
     type: git
     url: https://github.com/ros2/rclcpp.git
