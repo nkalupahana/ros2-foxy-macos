@@ -1,1 +1,1 @@
-brew install ompl ossp-uuid graphicsmagick suite-sparse
+brew install ompl ossp-uuid graphicsmagick suite-sparse libomp
