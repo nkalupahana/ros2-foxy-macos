@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Test
         run: |
-          git clone https://github.com/DrTimothyAldenDavis/SuiteSparse.git
-          cd SuiteSparse/CHOLMOD
-          make library
-          sudo make install INSTALL=/usr/local
+          brew install freeglut
+          realpath /usr/local/include/GL/freeglut_ext.h
+          sed -i -e 's/FGAPI GLUTproc FGAPIENTRY glutGetProcAddress/\/\/FGAPI GLUTproc FGAPIENTRY glutGetProcAddress/g' $(realpath /usr/local/include/GL/freeglut_ext.h)
+          cat /usr/local/include/GL/freeglut_ext.h
