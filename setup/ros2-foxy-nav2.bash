@@ -1,1 +1,1 @@
-brew install ompl
+brew install ompl ossp-uuid
