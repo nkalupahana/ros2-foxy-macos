@@ -1,1 +1,1 @@
-brew install ompl ossp-uuid graphicsmagick
+brew install ompl ossp-uuid graphicsmagick suite-sparse
