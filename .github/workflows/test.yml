@@ -10,6 +10,6 @@ jobs:
       - name: Test
         run: |
           git clone https://github.com/DrTimothyAldenDavis/SuiteSparse.git
-          cd SuiteSparse
+          cd SuiteSparse/CHOLMOD
           make library
           sudo make install INSTALL=/usr/local
