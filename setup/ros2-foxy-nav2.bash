@@ -1,4 +1,4 @@
 brew install ompl ossp-uuid graphicsmagick suite-sparse libomp ode osrf/simulation/gazebo11
 export "LIBRARY_PATH=/usr/local/opt/tbb@2020_u3/lib:/usr/local/opt/ode/lib/:$LIBRARY_PATH"
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/tbb@2020_u3
-export CPATH=${CPATH}:/usr/local/opt/tbb@2020_u3/include
+export CMAKE_PREFIX_PATH=/usr/local/opt/tbb@2020_u3:${CMAKE_PREFIX_PATH}
+export CPATH=/usr/local/opt/tbb@2020_u3/include:${CPATH}
