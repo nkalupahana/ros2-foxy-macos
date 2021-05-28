@@ -46,7 +46,7 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/setup/$WORKSPACE.bash
           chmod a+x $WORKSPACE.bash
-          ./$WORKSPACE.bash
+          . ./$WORKSPACE.bash
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
