@@ -15,3 +15,7 @@ repositories:
     type: git
     url: https://github.com/ros/bond_core.git
     version: dashing-devel
+  gazebo_ros_pkgs:
+    type: git
+    url: https://github.com/ros-simulation/gazebo_ros_pkgs.git
+    version: foxy
