@@ -27,11 +27,7 @@ repositories:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
     version: ros2
-  slam_toolbox:
-    type: git
-    url: https://github.com/SteveMacenski/slam_toolbox.git
-    version: foxy-devel
-    turtlebot3/turtlebot3:
+  turtlebot3/turtlebot3:
     type: git
     url: https://github.com/ROBOTIS-GIT/turtlebot3.git
     version: foxy-devel
