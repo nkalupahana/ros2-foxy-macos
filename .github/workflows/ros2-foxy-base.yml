@@ -10,7 +10,7 @@ jobs:
       - name: Setup Workspace
         run: |
           xcode-select -p
-          brew install cppcheck eigen pcre poco tinyxml wget bullet bison gcc
+          brew install cppcheck eigen pcre poco tinyxml wget bullet bison
           export PATH="/usr/local/opt/bison/bin:$PATH"
           brew install python@3.8
           brew unlink python
@@ -40,7 +40,7 @@ jobs:
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/ros2.repos
           vcs import src < ros2.repos
           cd ~/ros2_foxy/
-          colcon build --packages-skip-by-dep python_qt_binding --cmake-args -DCMAKE_C_COMPILER=/usr/local/opt/gcc/bin/gcc-11 -DCMAKE_CXX_COMPILER=/usr/local/opt/gcc/bin/g++-11
+          colcon build --packages-skip-by-dep python_qt_binding
       - name: Package
         run: |
           cd ~/ros2_foxy
