@@ -40,7 +40,7 @@ jobs:
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/ros2.repos
           vcs import src < ros2.repos
           cd ~/ros2_foxy/
-          colcon build --packages-skip-by-dep python_qt_binding
+          colcon build --merge-install --packages-skip-by-dep python_qt_binding
       - name: Package
         run: |
           cd ~/ros2_foxy
