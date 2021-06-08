@@ -67,3 +67,7 @@ repositories:
     type: git
     url: https://github.com/ros-perception/image_common
     version: ros2
+  control_toolbox:
+    type: git
+    url: https://github.com/ros-controls/control_toolbox.git
+    version: ros2-master
