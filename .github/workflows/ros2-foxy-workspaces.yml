@@ -58,7 +58,7 @@ jobs:
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/$WORKSPACE.repos
           vcs import < $WORKSPACE.repos
           cd ~/ws
-          colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=False
+          colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=False --packages-skip $PACKAGES_SKIP
         env:
           WORKSPACE: ${{ matrix.workspace }}
       - name: Package
