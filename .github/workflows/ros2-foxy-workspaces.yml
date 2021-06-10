@@ -59,7 +59,7 @@ jobs:
           vcs import < $WORKSPACE.repos
           cd ~/ws
           sudo mkdir -p /opt/ros/foxy/$WORKSPACE
-          sudo chown runner /opt/ros/foxy/$WORKSPACE
+          sudo chown runner /opt/ros /opt/ros/foxy/ /opt/ros/foxy/$WORKSPACE
           colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=False --install-base /opt/ros/foxy/$WORKSPACE --packages-skip $PACKAGES_SKIP
         env:
           WORKSPACE: ${{ matrix.workspace }}
