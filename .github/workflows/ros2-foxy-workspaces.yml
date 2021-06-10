@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        workspace: ["ros2-foxy-tools", "ros2-foxy-moveit2", "ros2-foxy-nav2"]
+        workspace: ["ros2-foxy-tools"]
     runs-on: macos-latest
     steps:      
       - name: Setup Workspace
@@ -58,13 +58,15 @@ jobs:
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/$WORKSPACE.repos
           vcs import < $WORKSPACE.repos
           cd ~/ws
-          colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=False --packages-skip $PACKAGES_SKIP
+          sudo mkdir -p /opt/ros/foxy/$WORKSPACE
+          sudo chown runner /opt/ros/foxy/$WORKSPACE
+          colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=False --install-base /opt/ros/foxy/$WORKSPACE --packages-skip $PACKAGES_SKIP
         env:
           WORKSPACE: ${{ matrix.workspace }}
       - name: Package
         run: |
-          cd ~/ws
-          zip -r $WORKSPACE.zip install/
+          cd /opt/ros/foxy
+          zip -r $WORKSPACE.zip $WORKSPACE/
         env:
           WORKSPACE: ${{ matrix.workspace }}  
       - name: Checkout
@@ -79,4 +81,4 @@ jobs:
           sed -i -e '$d' description.txt
           echo "Last updated: "$(date) >> description.txt 
           hub release delete $WORKSPACE
-          hub release create -F description.txt -a ~/ws/$WORKSPACE.zip $WORKSPACE
+          hub release create -F description.txt -a /opt/ros/foxy/$WORKSPACE.zip $WORKSPACE
