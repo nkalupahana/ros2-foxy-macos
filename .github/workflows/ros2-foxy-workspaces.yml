@@ -35,12 +35,12 @@ jobs:
              pytest-mock rosdep setuptools vcstool rosdistro numpy
       - name: Get ROS2 Foxy
         run: |
-          cd ~/
-          mkdir ros2_foxy
-          cd ros2_foxy
+          sudo mkdir -p /opt/ros/foxy/$WORKSPACE
+          sudo chown runner /opt/ros /opt/ros/foxy/ /opt/ros/foxy/$WORKSPACE
+          cd /opt/ros/foxy
           wget https://github.com/nkalupahana/ros2-foxy-macos/releases/download/ros2-foxy-base/ros2-foxy-base.zip
           unzip ros2-foxy-base.zip
-          source install/setup.bash
+          source ros2-foxy-base/setup.bash
           ros2
       - name: Create & Build Workspace
         run: |
@@ -51,10 +51,9 @@ jobs:
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           export CMAKE_PREFIX_PATH=/usr/local/opt/qt@5:$CMAKE_PREFIX_PATH
           export
-          cd ~/ros2_foxy
-          source install/setup.bash
+          source /opt/ros/foxy/ros2-foxy-base/setup.bash
           mkdir -p ~/ws/src
-          cd ~/ws/src 
+          cd ~/ws/src
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/$WORKSPACE.repos
           vcs import < $WORKSPACE.repos
           cd ~/ws
