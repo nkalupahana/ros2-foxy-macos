@@ -42,7 +42,7 @@ jobs:
           cd ~/ros2_foxy/
           sudo mkdir -p /opt/ros/foxy/ros2-foxy-base
           sudo chown runner /opt/ros /opt/ros/foxy /opt/ros/foxy/ros2-foxy-base
-          colcon build --packages-skip-by-dep python_qt_binding --install-base /opt/ros/foxy/ros2-foxy-base
+          colcon build --packages-skip-by-dep python_qt_binding --cmake-args -DCMAKE_BUILD_TYPE=Debug --install-base /opt/ros/foxy/ros2-foxy-base
       - name: Package
         run: |
           cd /opt/ros/foxy
