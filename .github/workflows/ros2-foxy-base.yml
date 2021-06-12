@@ -35,14 +35,13 @@ jobs:
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
-          mkdir -p ~/ros2_foxy/src
-          cd ~/ros2_foxy
+          sudo mkdir -p /opt/ros/foxy/ros2-foxy-base/src
+          sudo chown runner /opt/ros /opt/ros/foxy /opt/ros/foxy/ros2-foxy-base /opt/ros/foxy/ros2-foxy-base/src
+          cd /opt/ros/foxy/ros2-foxy-base/
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/ros2.repos
           vcs import src < ros2.repos
-          cd ~/ros2_foxy/
-          sudo mkdir -p /opt/ros/foxy/ros2-foxy-base
-          sudo chown runner /opt/ros /opt/ros/foxy /opt/ros/foxy/ros2-foxy-base
-          colcon build --packages-skip-by-dep python_qt_binding --cmake-args -DCMAKE_BUILD_TYPE=Debug --install-base /opt/ros/foxy/ros2-foxy-base
+          cd /opt/ros/foxy/ros2-foxy-base/
+          colcon build --packages-skip-by-dep python_qt_binding --cmake-args -DCMAKE_BUILD_TYPE=Debug
       - name: Package
         run: |
           cd /opt/ros/foxy
