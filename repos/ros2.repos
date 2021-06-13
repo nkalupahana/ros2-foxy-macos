@@ -353,8 +353,8 @@ repositories:
     version: foxy
   ros2/rviz:
     type: git
-    url: https://github.com/ros2/rviz.git
-    version: foxy
+    url: https://github.com/nkalupahana/rviz.git
+    version: patch-1
   ros2/spdlog_vendor:
     type: git
     url: https://github.com/ros2/spdlog_vendor.git
