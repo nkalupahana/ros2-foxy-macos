@@ -21,7 +21,6 @@ jobs:
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
           export PATH=$PATH:/usr/local/opt/qt@5/bin
           brew install graphviz pyqt5 sip
-          echo "export GTESTSYS=3" >> .bashrc
           sudo python3 -m pip install -U \
              argcomplete catkin_pkg colcon-common-extensions coverage \
              cryptography empy flake8 flake8-blind-except flake8-builtins \
