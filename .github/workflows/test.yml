@@ -9,7 +9,4 @@ jobs:
     steps:
       - name: Test
         run: |
-          brew install freeglut coreutils
-          realpath /usr/local/include/GL/freeglut_ext.h
-          sed -i -e 's/FGAPI GLUTproc FGAPIENTRY glutGetProcAddress/\/\/FGAPI GLUTproc FGAPIENTRY glutGetProcAddress/g' $(realpath /usr/local/include/GL/freeglut_ext.h)
-          cat /usr/local/include/GL/freeglut_ext.h
+          brew install osrf/simulation/gazebo11
