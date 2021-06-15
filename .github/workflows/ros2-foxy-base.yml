@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Setup Workspace
         run: |
+          brew update
           xcode-select -p
           brew install cppcheck eigen pcre poco tinyxml wget bullet bison
           export PATH="/usr/local/opt/bison/bin:$PATH"
