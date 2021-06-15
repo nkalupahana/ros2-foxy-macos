@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Install
         run: |
-          brew install -s osrf/simulation/gazebo11
+          brew update
+          brew install osrf/simulation/gazebo11
       - name: Test
         run: brew test osrf/simulation/gazebo11
