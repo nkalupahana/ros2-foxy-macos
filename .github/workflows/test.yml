@@ -7,7 +7,8 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Test
+      - name: Install
         run: |
           brew install osrf/simulation/gazebo11
-          brew test osrf/simulation/gazebo11
+      - name: Test
+        run: brew test osrf/simulation/gazebo11
