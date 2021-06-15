@@ -2,6 +2,8 @@ name: ROS2 Foxy Base
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
 
 jobs:
   build:
