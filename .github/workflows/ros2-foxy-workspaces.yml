@@ -42,6 +42,7 @@ jobs:
           unzip ros2-foxy-base.zip
           source ros2-foxy-base/setup.bash
           ros2
+          brew install osrf/simulation/gazebo11
       - name: Create & Build Workspace
         run: |
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/setup/$WORKSPACE.bash
