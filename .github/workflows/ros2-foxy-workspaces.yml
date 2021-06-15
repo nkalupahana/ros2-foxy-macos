@@ -13,6 +13,7 @@ jobs:
     steps:      
       - name: Setup Workspace
         run: |
+          brew update
           xcode-select -p
           brew install cppcheck eigen pcre poco tinyxml wget bullet bison
           export PATH="/usr/local/opt/bison/bin:$PATH"
@@ -42,7 +43,6 @@ jobs:
           unzip ros2-foxy-base.zip
           source ros2-foxy-base/setup.bash
           ros2
-          brew install osrf/simulation/gazebo11
       - name: Create & Build Workspace
         run: |
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/setup/$WORKSPACE.bash
