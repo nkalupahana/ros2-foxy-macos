@@ -6,4 +6,4 @@ This project aims to use CI to automatically build and package ROS2 Foxy for mac
 - Go to Releases, and download the workspaces you want to use. `base` is required for basic ROS2 functionality. (For `base`, follow the instructions in the release notes to get supplemental tools installed.)
 - Unzip the workpsaces in `/opt/ros/foxy/`.
 - `source` each workspace (`source workspacedir/setup.bash`). You can add this to your `.bashrc` or similar so every time you open a new terminal, it just works.
-- You're good to go!
+- You're good to go! Run `ros2` or `rviz2` and see the magic happen.
