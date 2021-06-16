@@ -58,7 +58,7 @@ repositories:
   moveit2:
     type: git
     url: https://github.com/nkalupahana/moveit2.git
-    version: ament-fixes
+    version: ament
   vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
