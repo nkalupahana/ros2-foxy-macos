@@ -49,7 +49,7 @@ jobs:
           ros2
       - name: Create & Build Workspace
         run: |
-          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/setup/$WORKSPACE.bash
+          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/rtabmap/setup/$WORKSPACE.bash
           chmod a+x $WORKSPACE.bash
           . ./$WORKSPACE.bash
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
@@ -59,7 +59,7 @@ jobs:
           source /opt/ros/foxy/ros2-foxy-base/setup.bash
           mkdir -p ~/ws/src
           cd ~/ws/src
-          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/main/repos/$WORKSPACE.repos
+          wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/rtabmap/repos/$WORKSPACE.repos
           vcs import < $WORKSPACE.repos
           cd ~/ws
           sudo mkdir -p /opt/ros/foxy/$WORKSPACE
