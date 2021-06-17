@@ -1,1 +1,1 @@
-brew install boost-python3
+brew install boost-python3 pcl
