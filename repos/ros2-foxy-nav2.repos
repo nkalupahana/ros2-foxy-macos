@@ -49,5 +49,5 @@ repositories:
     version: foxy-devel
   slam_toolbox:
     type: git
-    url: https://github.com/SteveMacenski/slam_toolbox.git
+    url: https://github.com/nkalupahana/slam_toolbox.git
     version: foxy-devel
