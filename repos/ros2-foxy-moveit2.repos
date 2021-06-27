@@ -21,8 +21,8 @@ repositories:
     version: master
   ros2_controllers:
     type: git
-    url: https://github.com/ros-controls/ros2_controllers.git
-    version: master
+    url: https://github.com/nkalupahana/ros2_controllers.git
+    version: patch-1
   warehouse_ros:
     type: git
     url: https://github.com/ros-planning/warehouse_ros
