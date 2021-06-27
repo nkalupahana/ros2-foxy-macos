@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        workspace: ["ros2-foxy-tools", "ros2-foxy-moveit2", "ros2-foxy-nav2", "ros2-rtabmap"]
+        workspace: ["ros2-foxy-tools", "ros2-foxy-moveit2", "ros2-foxy-nav2"]
     runs-on: macos-latest
     steps:      
       - name: Setup Workspace
