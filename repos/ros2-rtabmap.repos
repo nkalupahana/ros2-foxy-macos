@@ -1,7 +1,7 @@
 repositories:
   rtabmap_ros:
     type: git
-    url: https://github.com/introlab/rtabmap_ros.git
+    url: https://github.com/nkalupahana/rtabmap_ros.git
     version: ros2
   vision_opencv:
     type: git
