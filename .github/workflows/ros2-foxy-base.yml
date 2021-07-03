@@ -32,6 +32,13 @@ jobs:
              importlib-metadata lark-parser lxml mock mypy netifaces \
              nose pep8 pydocstyle pydot pygraphviz pyparsing \
              pytest-mock rosdep setuptools vcstool rosdistro numpy
+          brew install nuget
+          nuget sources add \
+             -Source "https://nuget.pkg.github.com/nkalupahana/index.json" \
+             -StorePasswordInClearText \
+             -Name "GitHub" \
+             -UserName "nkalupahana" \
+             -Password "${{ secrets.GITHUB_TOKEN }}" 
       - name: Build ROS2 Foxy
         run: |
           export PATH="/usr/local/opt/bison/bin:/usr/local/opt/qt@5/bin:$PATH"
@@ -45,19 +52,15 @@ jobs:
           sudo mkdir -p /opt/ros/foxy/ros2-foxy-base
           sudo chown runner /opt/ros /opt/ros/foxy /opt/ros/foxy/ros2-foxy-base
           colcon build --packages-skip-by-dep python_qt_binding --install-base /opt/ros/foxy/ros2-foxy-base
-      - name: Package
-        run: |
-          cd /opt/ros/foxy
-          zip -r ros2-foxy-base.zip ros2-foxy-base/
       - name: Checkout
         uses: actions/checkout@v2.3.4
-      - name: Release
-        env:
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      - name: Package and Release
         run: |
-          hub release show ros2-foxy-base >> description.txt
-          sed -i -e '$d' description.txt
-          echo "Last updated: "$(date) >> description.txt 
-          hub release delete ros2-foxy-base
-          hub release create -F description.txt -a /opt/ros/foxy/ros2-foxy-base.zip ros2-foxy-base
+          mv ${{ github.workspace }}/nuspec/ros2-foxy-base.nuspec /opt/ros/foxy/ros2-foxy-base/ros2-foxy-base.nuspec
+          version=`date +"%Y.%m.%dT%H.%M.%S"`
+          nuget pack /opt/ros/foxy/ros2-foxy-base \
+            -NoDefaultExcludes \
+            -NonInteractive \
+            -OutputFileNamesWithoutVersion \
+            -Version $version
+          nuget push ros2-foxy-base -Source "GitHub"

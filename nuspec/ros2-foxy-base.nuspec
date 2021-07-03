@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ros2-foxy-base</id>
+    <version>1</version>
+    <authors>vur</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ROS2 Foxy for macOS</description>
+    <repository type="git" url="https://github.com/nkalupahana/ros2-foxy-macos.git" />
+  </metadata>
+</package>
