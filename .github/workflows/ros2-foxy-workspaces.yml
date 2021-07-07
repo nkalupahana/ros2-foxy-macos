@@ -14,7 +14,7 @@ jobs:
       matrix:
         workspace: ["ros2-foxy-tools", "ros2-foxy-moveit2", "ros2-foxy-nav2"]
     runs-on: macos-latest
-    steps:      
+    steps:
       - name: Setup Workspace
         run: |
           brew update
@@ -24,6 +24,7 @@ jobs:
           brew install python@3.8
           brew unlink python
           brew link --force python@3.8
+          brew install python@3.9
           brew install asio tinyxml2 opencv console_bridge openssl
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           brew install log4cxx spdlog cunit qt@5 freetype assimp
