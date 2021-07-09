@@ -58,7 +58,7 @@ repositories:
   moveit2:
     type: git
     url: https://github.com/nkalupahana/moveit2.git
-    version: ompl_ament
+    version: main
   vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
