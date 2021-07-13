@@ -14,7 +14,7 @@ jobs:
           python -m pip install wheel
           python -m pip install SCons==2.5.1
           python -m pip show SCons
-          ls /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages
+          ls /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/scons-2.5.1
       - name: Build Mongo Driver
         run: |
           git clone -b 26compat https://github.com/mongodb/mongo-cxx-driver.git
