@@ -1,6 +1,7 @@
 name: mongo-cxx-driver
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -10,4 +11,5 @@ jobs:
       - name: Get Scons
         run: |
           python --version
+          python -m pip install wheel
           python -m pip install SCons==2.5.1
