@@ -1,0 +1,13 @@
+name: ROS2 Foxy Base
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Get Scons
+        run: |
+          python --version
+          python -m pip install SCons==2.5.1
