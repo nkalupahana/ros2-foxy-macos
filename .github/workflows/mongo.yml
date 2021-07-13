@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Get Scons
         run: |
-          brew install tree wget
+          brew install wget boost
           wget https://files.pythonhosted.org/packages/2c/ee/a9601b958c94e93410e635a5d67ed95300998ffdc36127b16d322b054ff0/scons-2.5.1.tar.gz
           tar -xvzf scons-2.5.1.tar.gz
           cd scons-2.5.1
