@@ -1,4 +1,4 @@
-name: ROS2 Foxy Base
+name: mongo-cxx-driver
 
 on:
   workflow_dispatch:
