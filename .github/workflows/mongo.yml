@@ -17,7 +17,7 @@ jobs:
           sudo python setup.py install
       - name: Build Mongo Driver
         run: |
-          export CPPPATH="$(brew --prefix boost)/include:$CPPPATH"
+          export CPPPATH="$(brew --prefix boost):$CPPPATH"
           git clone -b 26compat https://github.com/mongodb/mongo-cxx-driver.git
           cd mongo-cxx-driver
           sudo scons --prefix=/usr/local/ --full --use-system-boost --disable-warnings-as-errors
