@@ -10,13 +10,11 @@ jobs:
     steps:
       - name: Get Scons
         run: |
-          brew install tree
-          python --version
-          python -m pip install wheel
-          python -m pip install SCons==3.0.3
-          python -m pip show SCons
-          cd /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
-          tree
+          brew install tree wget
+          wget https://files.pythonhosted.org/packages/2c/ee/a9601b958c94e93410e635a5d67ed95300998ffdc36127b16d322b054ff0/scons-2.5.1.tar.gz
+          tar -xvzf scons-2.5.1.tar.gz
+          cd scons-2.5.1
+          python setup.py install
       - name: Build Mongo Driver
         run: |
           git clone -b 26compat https://github.com/mongodb/mongo-cxx-driver.git
