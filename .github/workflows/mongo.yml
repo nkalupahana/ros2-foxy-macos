@@ -13,3 +13,8 @@ jobs:
           python --version
           python -m pip install wheel
           python -m pip install SCons==2.5.1
+      - name: Build Mongo Driver
+        run: |
+          git clone -b 26compat https://github.com/mongodb/mongo-cxx-driver.git
+          cd mongo-cxx-driver
+          sudo scons --prefix=/usr/local/ --full --use-system-boost --disable-warnings-as-errors
