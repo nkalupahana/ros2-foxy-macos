@@ -13,9 +13,9 @@ jobs:
           brew install tree
           python --version
           python -m pip install wheel
-          python -m pip install SCons==2.5.1
+          python -m pip install SCons==3.0.3
           python -m pip show SCons
-          cd /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/scons-2.5.1/
+          cd /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
           tree
       - name: Build Mongo Driver
         run: |
