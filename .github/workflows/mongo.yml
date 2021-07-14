@@ -18,6 +18,7 @@ jobs:
       - name: Build Mongo Driver
         run: |
           export CPPFLAGS="-I$(brew --prefix boost)/include $CPPFLAGS"
+          export
           git clone -b 26compat https://github.com/mongodb/mongo-cxx-driver.git
           cd mongo-cxx-driver
           sudo scons --prefix=/usr/local/ --full --use-system-boost --disable-warnings-as-errors
