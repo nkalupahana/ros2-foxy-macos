@@ -12,6 +12,5 @@ jobs:
           brew tap osrf/simulation
           brew update
           brew install osrf/simulation/gazebo11
-          brew test osrf/simulation/gazebo11
       - name: Test
         run: brew test osrf/simulation/gazebo11
