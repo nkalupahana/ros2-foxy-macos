@@ -73,5 +73,5 @@ repositories:
     version: ros2-master
   warehouse_ros_sqlite:
     type: git
-    url: https://github.com/gleichdick/warehouse_ros_sqlite.git
+    url: https://github.com/nkalupahana/warehouse_ros_sqlite.git
     version: ros2
