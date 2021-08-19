@@ -17,7 +17,7 @@ jobs:
           export PATH="/usr/local/opt/bison/bin:$PATH"
           brew install python@3.8
           brew unlink python
-          brew link --force python@3.8
+          brew link --force --overwrite python@3.8
           brew install python@3.9
           brew install asio tinyxml2 opencv console_bridge openssl
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
