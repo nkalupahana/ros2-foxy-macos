@@ -17,7 +17,7 @@ repositories:
     version: ros2
   ros2_control:
     type: git
-    url: https://github.com/ros-controls/ros2_control
+    url: https://github.com/Ace314159/ros2_control.git
     version: foxy
   ros2_controllers:
     type: git
