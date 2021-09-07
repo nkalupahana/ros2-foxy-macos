@@ -1,5 +1,5 @@
 repositories:
-  moveit_msgs:
+  eigen_stl_containers:
     type: git
     url: https://github.com/ros/eigen_stl_containers
     version: ros2
