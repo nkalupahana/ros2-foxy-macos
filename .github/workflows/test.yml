@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install
-        run: pip install numpy==1.15.1
+        run: pip3 install numpy==1.15.1
