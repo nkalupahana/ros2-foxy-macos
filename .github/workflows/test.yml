@@ -7,4 +7,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Install
-        run: pip3 install numpy==1.18.5
+        run: pip3 install numpy==1.17.5
