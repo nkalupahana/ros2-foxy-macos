@@ -1,1 +1,1 @@
-brew install libomp
+brew install libomp yaml-cpp
