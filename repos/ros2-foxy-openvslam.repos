@@ -1,0 +1,5 @@
+repositories:
+  openvslam:
+    type: git
+    url: https://github.com/OpenVSLAM-Community/openvslam.git
+    version: foxy-devel
