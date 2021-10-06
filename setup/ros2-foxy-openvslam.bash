@@ -1,1 +1,1 @@
-brew install libomp yaml-cpp
+brew install libomp yaml-cpp brewsci/science/g2o
