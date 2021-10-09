@@ -61,7 +61,7 @@ jobs:
           mkdir -p ~/ws/src
           cd ~/ws/src
           wget https://raw.githubusercontent.com/nkalupahana/ros2-foxy-macos/openvslam/repos/$WORKSPACE.repos
-          vcs import < $WORKSPACE.repos
+          vcs import --recursive < $WORKSPACE.repos
           cd ~/ws
           sudo mkdir -p /opt/ros/foxy/$WORKSPACE
           sudo chown runner /opt/ros /opt/ros/foxy/ /opt/ros/foxy/$WORKSPACE
