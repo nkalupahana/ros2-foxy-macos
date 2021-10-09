@@ -1,4 +1,4 @@
-brew install boost-python3 pcl
+brew install boost-python3 pcl vtk
 # RTABMAP
 git clone https://github.com/introlab/rtabmap.git rtabmap
 cd rtabmap/build
