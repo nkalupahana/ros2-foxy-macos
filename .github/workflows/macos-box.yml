@@ -1,0 +1,10 @@
+name: Get Remote Box
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - name: Set up session
+      uses: lhotari/action-upterm@v1
