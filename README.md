@@ -1,6 +1,6 @@
 # macOS ROS2 (Foxy) Build Packaging
 
-This project aims to use CI to automatically build and package ROS2 Foxy for macOS. This is already done for Ubuntu (all packages on apt) and [Windows (on Azure Pipelines)](https://ros-win.visualstudio.com/ros-win/_build), but there's just no good alternative for macOS.
+This project aims to use CI to automatically build and package ROS2 Foxy for macOS. This is already done for Ubuntu (all packages on apt) and [Windows](https://github.com/Ace314159/ros2-foxy-windows-packages), but there's just no good alternative for macOS.
 
 ## Installation
 The Vanderbilt Robotics team has [detailed documentation](https://vurobotics.netlify.app/getting_started/installing-ros-mac.html) on using this repository. Here's the gist of it, though:
