@@ -6,5 +6,38 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: Set up session
-      uses: lhotari/action-upterm@v1
+      - name: Setup Workspace
+        run: |
+          brew update
+          xcode-select -p
+          brew install cppcheck eigen pcre poco tinyxml wget bullet bison
+          export PATH="/usr/local/opt/bison/bin:$PATH"
+          brew install python@3.8
+          brew unlink python
+          brew link --force --overwrite python@3.8
+          brew install python@3.9
+          brew install asio tinyxml2 opencv console_bridge openssl
+          export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
+          brew install log4cxx spdlog cunit qt@5 freetype assimp
+          export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
+          export PATH=$PATH:/usr/local/opt/qt@5/bin
+          brew install graphviz pyqt5 sip
+          sudo python3 -m pip install -U \
+             argcomplete catkin_pkg colcon-common-extensions coverage \
+             cryptography empy flake8 flake8-blind-except flake8-builtins \
+             flake8-class-newline flake8-comprehensions flake8-deprecated \
+             flake8-docstrings flake8-import-order flake8-quotes ifcfg \
+             importlib-metadata lark-parser lxml mock mypy netifaces \
+             nose pep8 pydocstyle pydot pygraphviz pyparsing \
+             pytest-mock rosdep setuptools vcstool rosdistro numpy
+      - name: Get ROS2 Foxy
+        run: |
+          sudo mkdir -p /opt/ros/foxy/$WORKSPACE
+          sudo chown runner /opt/ros /opt/ros/foxy/ /opt/ros/foxy/$WORKSPACE
+          cd /opt/ros/foxy
+          wget https://github.com/nkalupahana/ros2-foxy-macos/releases/download/ros2-foxy-base/ros2-foxy-base.zip
+          unzip ros2-foxy-base.zip
+          source ros2-foxy-base/setup.bash
+          ros2
+      - name: Set up session
+        uses: lhotari/action-upterm@v1
