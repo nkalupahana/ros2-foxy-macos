@@ -9,7 +9,7 @@ repositories:
     version: ros2
   navigation2:
     type: git
-    url: https://github.com/nkalupahana/navigation2.git
+    url: https://github.com/ros-planning/navigation2.git
     version: foxy-devel
   bond_core:
     type: git
