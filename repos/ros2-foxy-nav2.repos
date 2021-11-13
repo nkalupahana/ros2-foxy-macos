@@ -3,6 +3,10 @@ repositories:
     type: git
     url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
     version: master
+  groot:
+    type: git
+    url: https://github.com/BehaviorTree/Groot.git
+    version: master
   angles:
     type: git
     url: https://github.com/ros/angles.git
