@@ -66,7 +66,7 @@ repositories:
   image_common:
     type: git
     url: https://github.com/ros-perception/image_common.git
-    version: ros2
+    version: foxy
   control_toolbox:
     type: git
     url: https://github.com/ros-controls/control_toolbox.git
