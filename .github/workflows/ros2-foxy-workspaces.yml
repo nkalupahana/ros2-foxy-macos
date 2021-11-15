@@ -27,7 +27,7 @@ jobs:
           brew install python@3.9
           brew install asio tinyxml2 opencv console_bridge openssl
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
-          brew install log4cxx spdlog cunit qt@5 freetype assimp
+          brew install log4cxx spdlog cunit qt@5 freetype
           export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
           export PATH=$PATH:/usr/local/opt/qt@5/bin
           brew install graphviz pyqt5 sip
