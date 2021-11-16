@@ -3,10 +3,6 @@ repositories:
     type: git
     url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
     version: master
-  groot:
-    type: git
-    url: https://github.com/BehaviorTree/Groot.git
-    version: master
   angles:
     type: git
     url: https://github.com/ros/angles.git
@@ -57,8 +53,8 @@ repositories:
     version: foxy-devel
   realsense-ros:
     type: git
-    url: https://github.com/vanderbiltrobotics/realsense-ros.git
-    version: foxy
+    url: https://github.com/IntelRealSense/realsense-ros.git
+    version: ros2
   depthimage_to_laserscan:
     type: git
     url: https://github.com/ros-perception/depthimage_to_laserscan.git
