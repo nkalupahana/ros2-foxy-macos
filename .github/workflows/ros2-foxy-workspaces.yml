@@ -40,7 +40,7 @@ jobs:
              nose pep8 pydocstyle pydot pygraphviz pyparsing \
              pytest-mock rosdep setuptools vcstool rosdistro numpy
           ln -s /Applications/Xcode_13.1.app /Applications/Xcode.app
-          xcode-select -s /Applications/Xcode.app/Contents/Developer
+          sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
       - name: Get ROS2 Foxy
         run: |
           sudo mkdir -p /opt/ros/foxy/$WORKSPACE
