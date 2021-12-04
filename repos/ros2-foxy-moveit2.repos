@@ -57,7 +57,7 @@ repositories:
     version: foxy-devel
   moveit2:
     type: git
-    url: https://github.com/ros-planning/moveit2.git
+    url: https://github.com/nkalupahana/moveit2.git
     version: foxy
   vision_opencv:
     type: git
