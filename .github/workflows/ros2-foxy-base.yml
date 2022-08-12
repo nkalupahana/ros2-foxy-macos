@@ -29,7 +29,7 @@ jobs:
              flake8-class-newline flake8-comprehensions flake8-deprecated \
              flake8-docstrings flake8-import-order flake8-quotes ifcfg \
              importlib-metadata lark-parser lxml mock mypy netifaces \
-             nose pep8 pydocstyle pydot pygraphviz pyparsing \
+             nose pep8 pydocstyle pydot pyparsing \
              pytest-mock rosdep setuptools vcstool rosdistro numpy
       - name: Build ROS2 Foxy
         run: |
