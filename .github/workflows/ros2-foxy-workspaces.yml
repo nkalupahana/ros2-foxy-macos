@@ -2,10 +2,6 @@ name: ROS2 Foxy Workspaces
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["ROS2 Foxy Base"]
-    types:
-      - completed
   
 jobs:
   build:
