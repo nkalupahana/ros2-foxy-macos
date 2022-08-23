@@ -17,6 +17,7 @@ jobs:
           brew unlink python
           brew link --force --overwrite python@3.8
           brew install python@3.9
+          sudo python3 -m pip install --upgrade pip
           brew install asio tinyxml2 opencv console_bridge openssl
           export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           brew install log4cxx spdlog cunit qt@5 freetype
